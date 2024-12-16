@@ -12,6 +12,7 @@ import java.util.UUID;
 @Getter @NoArgsConstructor
 public class Author {
     @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
     @Column(name = "firstName", nullable = false)
     private String firstName;
