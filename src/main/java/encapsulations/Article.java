@@ -21,5 +21,6 @@ public class Article {
     @Column(name = "publishDate", nullable = false)
     private Date publishDate;
     @Column(name = "author", nullable = false)
+    @OneToOne
     private Author author;
 }
