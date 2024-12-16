@@ -37,4 +37,14 @@ public class ArticleController {
         articleRepository.save(article);
         return ResponseEntity.ok("Article created succesfully");
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<String> updateArticle(@PathVariable UUID id){
+        boolean exists = articleRepository.existsById(id);
+        if (!exists) {
+            return ResponseEntity.notFound().build();
+        }
+        articleRepository.save(articleRepository.findById(id).get());
+        return ResponseEntity.ok("Article succesfully updated");
+    }
 }
