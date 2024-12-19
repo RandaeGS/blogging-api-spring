@@ -45,4 +45,13 @@ public class AuthorController {
             return new ResponseEntity<>("Error creating author! Try again!", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteAuthor(@PathVariable UUID id){
+        Optional<Author> authorOptional = authorRepository.findById(id);
+        if (authorOptional.isEmpty()) {
+            return new ResponseEntity<>("Author not found", HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>("Author succesfully deleted", HttpStatus.OK);
+    }
 }
