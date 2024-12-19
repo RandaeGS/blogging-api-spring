@@ -54,4 +54,14 @@ public class AuthorController {
         }
         return new ResponseEntity<>("Author succesfully deleted", HttpStatus.OK);
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<?> updateAuthor(@PathVariable UUID id){
+        Optional<Author> authorOptional = authorRepository.findById(id);
+        if (authorOptional.isEmpty()) {
+            return new ResponseEntity<>("Author not found", HttpStatus.NOT_FOUND);
+        }
+        authorRepository.save(authorOptional.get());
+        return new ResponseEntity<>("Author updated succesfully", HttpStatus.OK);
+    }
 }
