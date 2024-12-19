@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("articles")
+@RequestMapping("/articles")
 public class ArticleController {
 
     @Autowired
@@ -20,6 +20,16 @@ public class ArticleController {
     @GetMapping("/")
     public List<Article> getArticles(){
         return articleRepository.findAll();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getArticle(@PathVariable UUID id){
+        boolean exists = articleRepository.existsById(id);
+        if (!exists) {
+            return ResponseEntity.notFound().build();
+        }
+        Article article = articleRepository.findById(id).get();
+        return ResponseEntity.ok(article);
     }
 
     @DeleteMapping("/{id}")

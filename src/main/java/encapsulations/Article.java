@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import java.util.Date;
 import java.util.UUID;
 
+@Entity
 @Table(name = "Article")
 @Getter @NoArgsConstructor @AllArgsConstructor
 public class Article {
@@ -20,7 +21,6 @@ public class Article {
     private String content;
     @Column(name = "publishDate", nullable = false)
     private Date publishDate;
-    @Column(name = "author", nullable = false)
     @OneToOne
     private Author author;
 }
