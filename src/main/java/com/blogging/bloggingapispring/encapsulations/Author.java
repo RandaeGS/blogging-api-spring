@@ -1,4 +1,4 @@
-package encapsulations;
+package com.blogging.bloggingapispring.encapsulations;
 
 
 import jakarta.persistence.*;

@@ -1,6 +1,6 @@
-package repositories;
+package com.blogging.bloggingapispring.repositories;
 
-import encapsulations.Article;
+import com.blogging.bloggingapispring.encapsulations.Article;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

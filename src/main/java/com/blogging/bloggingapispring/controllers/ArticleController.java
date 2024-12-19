@@ -1,10 +1,10 @@
-package controllers;
+package com.blogging.bloggingapispring.controllers;
 
-import encapsulations.Article;
+import com.blogging.bloggingapispring.encapsulations.Article;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import repositories.ArticleRepository;
+import com.blogging.bloggingapispring.repositories.ArticleRepository;
 
 import java.util.List;
 import java.util.Map;
@@ -18,7 +18,9 @@ public class ArticleController {
     private ArticleRepository articleRepository;
 
     @GetMapping("/")
+    @ResponseBody
     public List<Article> getArticles(){
+        System.out.println("hola");
         return articleRepository.findAll();
     }
 

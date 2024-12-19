@@ -1,4 +1,4 @@
-package encapsulations;
+package com.blogging.bloggingapispring.encapsulations;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -9,7 +9,7 @@ import java.util.Date;
 import java.util.UUID;
 
 @Entity
-@Table(name = "Article")
+@Table(name = "article")
 @Getter @NoArgsConstructor @AllArgsConstructor
 public class Article {
     @Id
